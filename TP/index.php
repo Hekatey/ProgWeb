@@ -8,6 +8,7 @@
 <body>
 
 	<?php
+		define("ROOT", dirname(__FILE__)."\\");
 		if(!isset($_GET['module'])){
 	    	$_GET['module'] = "ModJoueurs";
 		}
@@ -17,17 +18,17 @@
 		switch ($module) {
 
 				case "ModJoueurs":
-					require_once('C:\Users\trom7\OneDrive\Bureau\Laragon\TP\modules\mod_joueurs\mod_joueurs.php');
+					require_once ROOT."Modules\ModJoueurs\mod_joueurs.php";
 					break;
 				case "ModEquipes":
-					require_once('C:\Users\trom7\OneDrive\Bureau\Laragon\TP\modules\mod_equipes\mod_equipes.php');
+				  	require_once ROOT."Modules\ModJoueurs\mod_equipes.php";
 					break;
 				default:
         			die ("Accès interdit");
     				break;
 		}
 
-		require_once('C:\Users\trom7\OneDrive\Bureau\Laragon\TP\Connexion.php');
+		require_once('Connexion\Connexion.php');
 		Connexion::initConnexion();
 		new $module();
 
